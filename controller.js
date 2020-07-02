@@ -16,7 +16,23 @@ exports.tampilkandatamahasiswa = function(req, res){
             connection.log(error);
         } else {
             response.ok(rows, res);
-            // console.log(rows);
+            
         }
     });
 }; 
+
+
+// menampilkan berdasarkan ID
+exports.tampilkanberdasarkanidmahasiswa = function(req, res){
+    let id = req.params.id;
+    let myquery = "SELECT * FROM mahasiswa WHERE id_mahasiswa = ?";
+
+    connection.query(myquery,[id], function(error, rows, fields){
+        if (error) {
+            connection.log(error);
+        } else {
+            response.ok(rows, res);
+            // console.log(rows);
+        }
+    });
+};
