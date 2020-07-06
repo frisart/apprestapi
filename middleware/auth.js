@@ -15,7 +15,7 @@ exports.registrasi = function(req, res){
         tanggal_daftar:new Date()
     }
 
-    var query = "SELECT email from ? WHERE ?";
+    var query = "SELECT email FROM ?? WHERE ?? =?";
     var table = ["user", "email", post.email];
 
     query = mysql.format(query, table);
@@ -25,7 +25,7 @@ exports.registrasi = function(req, res){
             console.log(error);
         } else {
             if (rows.length == 0) {
-                var query = "INSERT INTO ?? SET ??";
+                var query = "INSERT INTO ?? SET ?";
                 var table = ["user"];
 
                 query = mysql.format(query,table);
